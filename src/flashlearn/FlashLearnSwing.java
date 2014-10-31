@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 
+import com.sun.java.swing.plaf.windows.resources.windows;
+
 public class FlashLearnSwing {
 
 	private JFrame frame;
@@ -49,7 +51,7 @@ public class FlashLearnSwing {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panelCard = new JPanel(new CardLayout());
@@ -61,11 +63,13 @@ public class FlashLearnSwing {
 		panelAddVocab = new JPanelAddVocab(this);
 		panelCard.add(panelAddVocab, strAddVocab);
 	}
-	
-	
-	public void update(){
+
+	public void update() {
 		frame.pack();
-		frame.setBounds(frame.getX(), frame.getY(), 800, 600);
+		frame.setBounds(100, 100, 800, 600);
 	}
 
+	public JFrame getFrame() {
+		return frame;
+	}
 }

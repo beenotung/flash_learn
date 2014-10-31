@@ -2,6 +2,7 @@ package flashlearn;
 
 import javax.swing.JPanel;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.TextField;
@@ -26,10 +27,6 @@ public class JPanelAddVocab extends JPanel {
 	private static String strLangDefault = "Choose Lang Here";
 	private static String strWordDefault = "Type Word Here";
 
-	private JPanel panelLabels;
-	// private Vector<E>
-	private JPanel panelWords;
-
 	/**
 	 * Create the panel.
 	 * 
@@ -37,41 +34,35 @@ public class JPanelAddVocab extends JPanel {
 	 */
 	public JPanelAddVocab(FlashLearnSwing flashLearnSwing) {
 		this.flashLearnSwing = flashLearnSwing;
-		
+
 		setLayout(new FlowLayout());
 
-		panelLabels = new JPanel(new FlowLayout());
-		add(panelLabels);
-
 		JButton btnAddLabel = new JButton(strAddLabel);
-		panelLabels.add(btnAddLabel);
+		add(btnAddLabel);
 		btnAddLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addLabel();
 			}
 		});
 
-		addLabel();
-
-		panelWords = new JPanel(new FlowLayout());
-		add(panelWords);
-
 		JButton btnAddPanelWord = new JButton(strAddWord);
-		panelWords.add(btnAddPanelWord);
+		add(btnAddPanelWord);
 		btnAddPanelWord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addWord();
 			}
 		});
 
-		addWord();
+		addLabel();
 
+		addWord();
 	}
 
 	protected void addLabel() {
 		// TODO Auto-generated method stub
 		JPanel panelLabel = new JPanel();
-		panelLabels.add(panelLabel);
+		add(panelLabel);
+		// panelLabels.add(panelLabel);
 		TextField textFieldLabel = new TextField(strLabelDefault);
 		panelLabel.add(textFieldLabel);
 
@@ -81,7 +72,7 @@ public class JPanelAddVocab extends JPanel {
 	protected void addWord() {
 		// TODO Auto-generated method stub
 		JPanel panelWord = new JPanel();
-		panelWords.add(panelWord);
+		add(panelWord);
 		Choice choiceLang = new Choice();
 		panelWord.add(choiceLang);
 		choiceLang.add(strLangDefault);
