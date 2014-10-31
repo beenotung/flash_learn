@@ -20,11 +20,11 @@ public class FlashLearnSwing {
 	/**
 	 * @wbp.nonvisual location=112,-3
 	 */
-	private JPanel panelControl;
+	private JPanelControl panelControl;
 	private JPanel panelCard;
-	private JPanel panelAddVocab;
-	
-	private String strAddVocab="Add Vocab";
+	private JPanelAddVocab panelAddVocab;
+
+	public static String strAddVocab = "Add Vocab";
 
 	/**
 	 * Launch the application.
@@ -57,28 +57,14 @@ public class FlashLearnSwing {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		panelControl = new JPanel();
+		panelCard = new JPanel(new CardLayout());
+		frame.getContentPane().add(panelCard, BorderLayout.CENTER);
+
+		panelControl = new JPanelControl(panelCard);
 		frame.getContentPane().add(panelControl, BorderLayout.NORTH);
-		
-		panelCard=new JPanel(new CardLayout());
-		frame.getContentPane().add(panelCard,BorderLayout.CENTER);
-		
 
-		JButton btnAddVocab = new JButton(strAddVocab);
-		btnAddVocab.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				addVocab();
-			}
-		});
-		panelControl.add(btnAddVocab);
-
-		panelAddVocab = new JPanel();
-		panelCard.add(panelAddVocab,strAddVocab);
-		}
-
-	protected void addVocab() {
-		// TODO Auto-generated method stub
-		CardLayout cardLayout=(CardLayout) panelCard.getLayout();
-		cardLayout.show(panelCard, strAddVocab);
+		panelAddVocab = new JPanelAddVocab();
+		panelCard.add(panelAddVocab, strAddVocab);
 	}
+
 }
