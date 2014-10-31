@@ -4,15 +4,10 @@ import java.awt.CardLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JButton;
 
 import java.awt.BorderLayout;
 
-import javax.swing.SwingConstants;
 import javax.swing.JPanel;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class FlashLearnSwing {
 
@@ -63,7 +58,7 @@ public class FlashLearnSwing {
 		panelControl = new JPanelControl(panelCard);
 		frame.getContentPane().add(panelControl, BorderLayout.NORTH);
 
-		panelAddVocab = new JPanelAddVocab();
+		panelAddVocab = new JPanelAddVocab(frame);
 		panelCard.add(panelAddVocab, strAddVocab);
 	}
 

@@ -7,17 +7,19 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class JPanelControl extends JPanel {
 	private JPanel panelCard;
 
-	private JButton btnAddVocab;
 
 	/**
 	 * Create the panel.
 	 */
 	public JPanelControl(JPanel panelCard) {
 		this.panelCard = panelCard;
-		btnAddVocab = new JButton(FlashLearnSwing.strAddVocab);
+
+		JButton btnAddVocab = new JButton(FlashLearnSwing.strAddVocab);
+		add(btnAddVocab);
 		btnAddVocab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addVocab();
