@@ -58,8 +58,14 @@ public class FlashLearnSwing {
 		panelControl = new JPanelControl(panelCard);
 		frame.getContentPane().add(panelControl, BorderLayout.NORTH);
 
-		panelAddVocab = new JPanelAddVocab(frame);
+		panelAddVocab = new JPanelAddVocab(this);
 		panelCard.add(panelAddVocab, strAddVocab);
+	}
+	
+	
+	public void update(){
+		frame.pack();
+		frame.setBounds(frame.getX(), frame.getY(), 800, 600);
 	}
 
 }
